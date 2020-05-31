@@ -1,5 +1,6 @@
 package com.cbt.tests.review;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -30,6 +31,16 @@ public class WheatherAPP {
         String city = scanner.nextLine();
         String woeid = getWOEID(city);
         printWeatherInfo(woeid);
+    }
+
+    @Test
+    public void test(){
+        given().
+                log().all().
+                queryParam("query","London").
+                //header("Accept","application/json").
+        when().
+                get("https://www.metaweather.com/api/location").prettyPeek();
     }
 
     public static String getWOEID(String city){

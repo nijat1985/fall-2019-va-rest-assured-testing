@@ -21,7 +21,7 @@ public class RestAssuredIntro {
         //THEN - used for verifying the request
         RestAssured.
                 given().
-                when().get("http://api.zippopotam.us/us/22102").
+        when().get("http://api.zippopotam.us/us/22102").
                 then().statusCode(200);
 
     }
@@ -41,21 +41,26 @@ public class RestAssuredIntro {
     @Test
     public void testStatusCode2(){
         RestAssured.
-                when().get("http://api.openrates.io/latest").
-                then().statusCode(200);
+            when().
+                get("http://api.openrates.io/latest").
+            then().
+                statusCode(200);
     }
 
     /**
      * make a get request to http://api.openrates.io/latest
      * verify that status code is 200
+     * print response
     */
     @Test
     public void printResponse(){
         //prettyPeek() -> prints the response
         RestAssured.
-                when().get("http://api.openrates.io/latest").
+            when().
+                get("http://api.openrates.io/latest").
                 prettyPeek().
-                then().statusCode(200);
+            then().
+                statusCode(200);
     }
 
 
@@ -70,28 +75,42 @@ public class RestAssuredIntro {
         //statusCode() --> verify code
         //contentType() --> verify the header content type
         RestAssured.
-                when().get("http://api.openrates.io/latest").
+            when().
+                get("http://api.openrates.io/latest").
                 prettyPeek().
-                then().statusCode(200).contentType(ContentType.JSON);
+            then().
+                statusCode(200).
+                contentType(ContentType.JSON);
 
-        //SAME test woth some syntactic sugar
+        //SAME test with some syntactic sugar
         RestAssured.
-                when().get("http://api.openrates.io/latest").
+            when().
+                get("http://api.openrates.io/latest").
                 prettyPeek().
-                then().assertThat().statusCode(200).and().contentType(ContentType.JSON);
+            then().
+                assertThat().
+                statusCode(200).
+                and().
+                contentType(ContentType.JSON);
 
         //SAME test but verify header differently
         RestAssured.
-                when().get().
+            when().
+                get("http://api.openrates.io/latest").
                 prettyPeek().
-                then().statusCode(200).contentType("application/json");
+            then().
+                statusCode(200).
+                contentType("application/json");
 
 
         //SAME test but verify header differently differently
         RestAssured.
-                when().get().
+            when().
+                get("http://api.openrates.io/latest").
                 prettyPeek().
-                then().statusCode(200).header("Content-Type","application/json");
+            then().
+                statusCode(200).
+                header("Content-Type","application/json");
     }
 
     /**
@@ -104,10 +123,15 @@ public class RestAssuredIntro {
     @Test
     public void testStatusCodeAndHeader(){
         RestAssured.
-                when().get("http://api.zippopotam.us/us/22102").prettyPeek().
-                then().statusCode(200).
-                and().contentType(ContentType.JSON).
-                and().header("Charset",equalTo("UTF-8"));
+            when().
+                get("http://api.zippopotam.us/us/22102").
+                prettyPeek().
+            then().
+                statusCode(200).
+                and().
+                contentType(ContentType.JSON).
+                and().
+                header("Charset",equalTo("UTF-8"));
     }
 
 

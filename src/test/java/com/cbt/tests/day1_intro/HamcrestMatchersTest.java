@@ -34,7 +34,7 @@ public class HamcrestMatchersTest {
 
         //LIST
         ArrayList<String> emptyList = new ArrayList<>();
-        assertThat(emptyList,empty());
+        assertThat(emptyList,is(empty()));
 
         List<String> words = Arrays.asList("Larry", "Moe", "Curly");
         assertThat(words,hasSize(3));

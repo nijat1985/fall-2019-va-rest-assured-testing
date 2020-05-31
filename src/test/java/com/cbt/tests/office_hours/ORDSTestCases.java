@@ -37,7 +37,8 @@ public class ORDSTestCases {
         //turns out you can only get 25 employees per response
         //need to use extra query parametr to get all at once
         //row_count
-        Response response = given().queryParam("limit",1000).
+        Response response = given().
+                queryParam("limit",1000).
                 when().get("/employees");
 
         response.then().
@@ -56,9 +57,9 @@ public class ORDSTestCases {
     @Test
     public void departments(){
         List<Integer> depIds = given().
-                queryParam("limit", 1000).
-                when().
-                get("/employees").jsonPath().getList("items.department_id");
+                        queryParam("limit", 1000).
+                    when().
+                        get("/employees").jsonPath().getList("items.department_id");
         System.out.println(depIds);
         //remove duplicates
         //Set<Integer> uniqueDepIds = new HashSet<>(depIds);
@@ -70,11 +71,13 @@ public class ORDSTestCases {
         for(Integer depId : uniqueDepIds){
             // call the department/:id to get the specific department
             // verify 200, verify name is not null
+
             given().
-                    pathParam("id",depId).
+                    pathParam("id", depId).
             when().
                     get("/departments/{id}").prettyPeek().
-            then().statusCode(200).and().body("department_name",not(emptyOrNullString()));
+                    then().statusCode(200).and().body("department_name", not(emptyOrNullString()));
+
         }
 
     }

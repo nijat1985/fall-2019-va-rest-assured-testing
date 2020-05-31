@@ -23,7 +23,7 @@ public class CustomHeadersTest {
 
     /**
      * send a get request to http://54.224.118.38:8000/api
-     * include header Accept, value = application
+     * include header Accept, value = application/xml
      * verify that response content type is xml
      */
     @Test
@@ -36,7 +36,6 @@ public class CustomHeadersTest {
         then().
                 log().all().
                 contentType(ContentType.XML);
-
     }
 
 

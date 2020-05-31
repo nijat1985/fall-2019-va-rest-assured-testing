@@ -14,16 +14,21 @@ public class LoginInRestAssured {
     @Test
     public void test1(){
         RestAssured.
-                given().log().all().
-                when().get("latest").
-                then().statusCode(200);
+            given().
+                log().all().
+            when().
+                get("latest").
+            then().
+                statusCode(200);
     }
 
     @Test
     public void test2(){
         RestAssured.
-                when().get("latest").
-                then().log().ifValidationFails().
+            when().
+                get("latest").
+            then().
+                log().ifValidationFails().
                 statusCode(200);
     }
 

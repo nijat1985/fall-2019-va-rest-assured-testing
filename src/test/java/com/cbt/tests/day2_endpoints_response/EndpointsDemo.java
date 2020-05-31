@@ -19,16 +19,22 @@ public class EndpointsDemo {
     @Test
     public void getLatest(){
         RestAssured.
-                when().get("/latest").prettyPeek().
-                then().statusCode(200);
+            when().
+                get("/latest").
+                prettyPeek().
+            then().
+                statusCode(200);
     }
 
 
     @Test
     public void getHistoricRate(){
         RestAssured.given().
-                when().get("/2000-01-03").prettyPeek().
-                then().statusCode(200);
+            when().
+                get("/2000-01-03").
+                prettyPeek().
+            then().
+                statusCode(200);
     }
 
 }

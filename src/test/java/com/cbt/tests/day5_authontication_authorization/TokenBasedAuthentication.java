@@ -16,14 +16,18 @@ When we have right authentication but do not have permission to make certain req
 There are different types of authentication we can do using rest assured.
 Basic authentication
 This is logging in using username/password. There are 2 types of basic auth.
-    Preemptive: in preemptive authentication, rest will send the username/password first in one request. Once authenticated, It will send the second request with our query.
+    Preemptive: in preemptive authentication, rest will send the username/password first in one request. Once authenticated,
+    It will send the second request with our query.
     Challenged: rest will send username/password together with the request.
 API key
-    it is type of authentication we send a secret key in as part of the query. It can be in the header or as a query parameter. This information can be found in the api documentation. We usually need to sign up for the api.
+    it is type of authentication we send a secret key in as part of the query. It can be in the header or as a query parameter.
+    This information can be found in the api documentation. We usually need to sign up for the api key.
 Form based authentication
-    it is practically username/password authentication. In order to authenticate using form based authentication we need pass the username password in the form parameters.
+    it is practically username/password authentication.
+    In order to authenticate using form based authentication we need pass the username password in the form parameters.
 Token based authentication
-In token based authentication, to login and use any web service, we first ask the server to give us a token that recognizes us. Then we take the token and show it the api.
+In token based authentication, to login and use any web service, we first ask the server to give us a token that recognizes us.
+Then we take the token and show it the api.
 
 oauth1/oauth2
 We can use 3rd party tools to be get authenticated. Many websites we can login using google accounts, Facebook etc. we login canvas using okta.

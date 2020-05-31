@@ -43,7 +43,8 @@ public class GitHubTests {
 
     @Test
     public void testScarlet(){
-        //some api's accept more than one parameters. In this case we create a map and use pathParams() method and pass map inside ()
+        //some api's accept more than one parameters.
+        //In this case we create a map and use pathParams() method and pass map inside ()
         Map<String, String> params = new HashMap<>();
         params.put("username", "scarlet");
         given().

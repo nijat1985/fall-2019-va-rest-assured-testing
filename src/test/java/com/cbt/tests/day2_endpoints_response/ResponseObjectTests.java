@@ -18,7 +18,7 @@ public class ResponseObjectTests {
     @Test
     public void verifyStudentInfrmation(){
         //response -> represents the response that we get from the server
-        Response response = when().get("/student/10662");
+        Response response = when().get("/student/11721");
         System.out.println(response.statusLine());
         System.out.println(response.statusCode());
         System.out.println(response.header("Content-Type"));
@@ -28,9 +28,9 @@ public class ResponseObjectTests {
 
         //verify status
         response.then().statusCode(200);
-        //verify response contains Vera
+        //verify response contains Audrey
         String resString = response.asString();
-        assertThat(resString,containsString("Vera"));
+        assertThat(resString,containsString("Audrey"));
     }
 
     @Test

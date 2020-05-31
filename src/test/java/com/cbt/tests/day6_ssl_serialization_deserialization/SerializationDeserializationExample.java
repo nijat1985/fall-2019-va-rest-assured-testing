@@ -27,7 +27,7 @@ public class SerializationDeserializationExample {
         //lets create Map from this
         //we do the conversion using Gson or Jackson-databind
         //in our framework
-        //json --> file tpe (like xml, pdf, doc)
+        //json --> file type (like xml, pdf, doc)
         //gson --> library used for conversion(serialization)
         Gson gson = new Gson();
 
@@ -42,7 +42,7 @@ public class SerializationDeserializationExample {
 
 
     @Test
-    public void readToObject() throws FileNotFoundException {
+    public void readToObject() throws IOException {
         //read the file
         FileReader fileReader = new FileReader("src/test/resources/car.json");
         //de-serialize into pojo
@@ -50,7 +50,7 @@ public class SerializationDeserializationExample {
         Car myCar = gson.fromJson(fileReader, Car.class);
         System.out.println("myCar.getMake() = " + myCar.getMake());
         System.out.println("myCar.getDoors() = " + myCar.getDoors());
-
+        fileReader.close();
     }
 
     @Test

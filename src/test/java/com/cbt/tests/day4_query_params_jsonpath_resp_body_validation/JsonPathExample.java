@@ -110,7 +110,7 @@ public class JsonPathExample {
         System.out.println("lastStudent = " + lastStudent);
 
         //get all ids
-        List<String> list = jsonPath.getList("students.firstName");
+        List<String> list = jsonPath.getList("students.studentId");
         System.out.println("list.size() = " + list.size());
         System.out.println("list = " + list);
 

@@ -18,7 +18,7 @@ public class Junit5Intro {
 
     @Test
     public void test1(){
-        //in Junit 5 assertions are inside the assertions
+        //in Junit 5 assertions are inside the Assertions class
         Assertions.assertEquals(1,1);
     }
 
@@ -27,6 +27,7 @@ public class Junit5Intro {
     public void test2(){
         Assertions.assertTrue(true);
 
+        //this one is like soft assert. it runs without throwing exception. It throws exception at the end and shows all mismatches.
         Assertions.assertAll(
                 () ->   Assertions.assertTrue(true),
                 () -> Assertions.assertEquals(2,1),
